@@ -8,7 +8,7 @@ import com.bykhkalo.redditapiclient.repository.RedditPostsRepositoryImpl
 
 class MainViewModel: ViewModel() {
 
-    private var repository: RedditPostsRepository = RedditPostsRepositoryImpl(10)
+    private var repository: RedditPostsRepository = RedditPostsRepositoryImpl(10, 5)
 
     private val trigger = MutableLiveData<Boolean>()
 
