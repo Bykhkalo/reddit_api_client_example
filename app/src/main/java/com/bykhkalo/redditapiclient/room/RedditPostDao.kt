@@ -13,9 +13,12 @@ interface RedditPostDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(posts : List<RedditPost>)
 
-    @Query("SELECT * FROM posts WHERE subreddit = :subreddit ORDER BY indexInResponse ASC")
-    fun getPosts(subreddit : String) : DataSource.Factory<Int, RedditPost>
+    @Query("SELECT * FROM posts ORDER BY indexInResponse ASC")
+    fun getPosts() : DataSource.Factory<Int, RedditPost>
 
-    @Query("SELECT MAX(indexInResponse) + 1 FROM posts WHERE subreddit = :subreddit")
-    fun getNextIndex(subreddit: String) : Int
+    @Query("SELECT MAX(indexInResponse) + 1 FROM posts")
+    fun getNextIndex() : Int
+
+    @Query("DELETE FROM posts")
+    fun deleteAll()
 }
