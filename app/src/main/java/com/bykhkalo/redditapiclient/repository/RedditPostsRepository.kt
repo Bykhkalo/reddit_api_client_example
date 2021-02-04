@@ -5,5 +5,5 @@ import com.memebattle.pwc.util.PwcListing
 
 interface RedditPostsRepository {
 
-    fun postsOfSubreddit(subReddit: String, pageSize: Int): PwcListing<RedditPost>
+    fun postsOfSubreddit(): PwcListing<RedditPost>
 }
